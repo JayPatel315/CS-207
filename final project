@@ -1,4 +1,4 @@
-#include <LiquidCrystal.h> 
+#include <LiquidCrystal.h> // library used for lcd
 
 LiquidCrystal lcd(1, 2, 4, 5, 6, 7); // Creates an LCD object. Parameters: (rs, enable, d4, d5, d6, d7)
 
@@ -33,21 +33,20 @@ time = pulseIn(echoPin, HIGH);  // senses the distance
 distanceCm= (time*0.034/2);     // Conversion to show ho much cm the object is far
 distanceInch = (time*0.0133/2); // conversion to show how much inch the oject is far
 
-lcd.setCursor(0,0);       // to set the location on lcd for the text
+lcd.setCursor(0,0);       // to set the location on lcd for the text for cm
 lcd.print("Distance: "); // Prints string "Distance" on the LCD
 lcd.print(distanceCm);  // Prints the distance from sensor to Lcd
 lcd.print("  cm");
 delay(10);
-lcd.setCursor(0,1);
-lcd.print("Distance: ");
-lcd.print(distanceInch);
+
+lcd.setCursor(0,1);       // to set the location on lcd for the text for cm
+lcd.print("Distance: ");  // Prints string "Distance" on the LCD
+lcd.print(distanceInch);    // Prints the distance from sensor to Lcd
 lcd.print("inch");
 
 if (distanceCm <= 5 ) // if distance in CM is less than 5cm the buzzer beeps 
 {
-Serial.println("Door open");
-Serial.println("Distance = ");
-Serial.println(distance);
+
 digitalWrite (buzzPin, HIGH);   // the buzzer beeps 
 delay(500);
 
@@ -57,10 +56,6 @@ else
 
 // Don't buzz
 
-//digitalWrite(buzzPin, LOW);
-Serial.println("Door closed");
-Serial.println("Distance = ");
-Serial.println(distance);
 digitalWrite (buzzPin, LOW);    // if distance is greater than 5 cm the buzzer will not beep
 delay(5);
 
