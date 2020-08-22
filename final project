@@ -1,3 +1,11 @@
+/*
+created by : Jay Patel (200439447)
+Cs 207 Final Project
+
+I have made an alarming system which shows the distance as well
+
+*/
+
 #include <LiquidCrystal.h> // library used for lcd
 
 LiquidCrystal lcd(1, 2, 4, 5, 6, 7); // Creates an LCD object. Parameters: (rs, enable, d4, d5, d6, d7)
