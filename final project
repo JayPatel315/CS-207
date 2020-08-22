@@ -4,7 +4,7 @@ LiquidCrystal lcd(1, 2, 4, 5, 6, 7); // Creates an LCD object. Parameters: (rs, 
 
 const int trigPin = 8;  
 const int echoPin = 9;
-int const buzzPin = 11;
+int const buzzerPin = 11;
 long time;
 int DistanceCm, DistanceInch;
 
@@ -15,7 +15,7 @@ void setup()
 lcd.begin(16,2);          // Gives the dimensions to the lcd screen
 pinMode(trigPin, OUTPUT); // Used for output
 pinMode(echoPin, INPUT);  // Used for input
-pinMode(buzzPin, OUTPUT); // Used for output for ringing the buzzer
+pinMode(buzzerPin, OUTPUT); // Used for output for ringing the buzzer
 }
 
 void loop() {
@@ -47,7 +47,7 @@ lcd.print("inch");
 if (distanceCm <= 5 ) // if distance in CM is less than 5cm the buzzer beeps 
 {
 
-digitalWrite (buzzPin, HIGH);   // the buzzer beeps 
+digitalWrite (buzzerPin, HIGH);   // the buzzer beeps 
 delay(500);
 
 }
@@ -56,7 +56,7 @@ else
 
 // Don't buzz
 
-digitalWrite (buzzPin, LOW);    // if distance is greater than 5 cm the buzzer will not beep
+digitalWrite (buzzerPin, LOW);    // if distance is greater than 5 cm the buzzer will not beep
 delay(5);
 
 }
